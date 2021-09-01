@@ -63,6 +63,7 @@ public class BookJDBC implements IBookDAO {
             stmt.setString(4, book.getCategory());
             stmt.setShort(5, book.getYear());
             counter = stmt.executeUpdate();
+            System.out.println("You have inserted: "+book.getId()+" "+book.getAuthor()+" "+book.getTitle());
             System.out.println("Rows affected: "+counter);
         }catch(SQLException Ex){
             Ex.printStackTrace(System.out);
@@ -91,6 +92,7 @@ public class BookJDBC implements IBookDAO {
             stmt.setString(4, book.getCategory());
             stmt.setShort(5, book.getYear());
             counter = stmt.executeUpdate();
+            System.out.println("You have modified: "+book);
             System.out.println("Rows affected: "+counter);
         }catch(SQLException Ex){
             Ex.printStackTrace(System.out);
@@ -115,6 +117,7 @@ public class BookJDBC implements IBookDAO {
             stmt = conn.prepareStatement(SQL_DELETE);
             stmt.setString(1, book.getId());
             counter = stmt.executeUpdate();
+            System.out.println("You have removed: "+book.getId());
             System.out.println("Rows affected: "+counter);
         }catch(SQLException Ex){
             Ex.printStackTrace(System.out);

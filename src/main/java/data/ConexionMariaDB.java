@@ -12,7 +12,6 @@ public class ConexionMariaDB {
     private static final String url = jdbc+host+":"+port+"/"+database;
 
     public static Connection getConnection() throws SQLException {
-        System.out.println("Se ha conectado a la base datos satisfactoriamente");
         return DriverManager.getConnection(url,username,password);
     }
 

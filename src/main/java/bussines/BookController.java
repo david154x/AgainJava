@@ -29,7 +29,7 @@ public class BookController {
         bookDAOJDBC.update(book);
     }
 
-    public static void eliminarRefistro(Book book) throws SQLException {
+    public static void eliminarRegistro(Book book) throws SQLException {
         IBookDAO bookDAOJDBC = new BookJDBC();
         bookDAOJDBC.delete(book);
     }
