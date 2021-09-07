@@ -1,0 +1,67 @@
+Hola buen día, les saluda cordialmente David Rojas espero se encuentren muy bien.
+Me gustaria compartir con ustedes la experiencia que tuve al momento de iniciar en 
+los sistemas Linux, vale justo al momento de migrar en total mentalidad a este nuevo
+universo en el mundo del Analisis y Desarrollo de software me di cuenta que es de total 
+necesidad para cualquier desarrollador, el poder tener acceso a una base de datos entre 
+las cuales, mi favorita y preferida para trabajar y aprender es MariaDB, como tambien
+una de mis plataformas en vista de interfaz grafica para trabajar con dichos datos tambien
+mi querido MySQLWorkbench. Para justo este momento quiero compartirles como instalar ambos
+en Linux desde cero.
+
+MySQLWorkbench
+
+Vale, una ves instalado MariaDB procedemos a iniciar como usuario root o si ya hemos creado
+con anterioridad un usuario iniciamos igualmente por medio de la consola asi que entramos
+en modo DIOS... 
+alt + ctrl + t
+
+escribimos mysql -u (Por defecto es root || Nuestro usuario) -p 
+Nota importantisima!: siempre dejemos la contraseña sin ningun dato ya que al momento de presionar intro
+nos pedira la contraseña nuevamente y esta se concatenara con la informacion puesta justo antes, asi
+pues si hacemos importante caso a esta nota sin ningun problema nos pedira la contraseña.
+Nota: No es obligatorio envolver nuestro Usuario entre '', sin ningun problema si las omitimos 
+obtenemos exactamente el mismo resultado.
+
+Enter password: (Por defecto es nada || Ingresmos nuestra contraseña)
+
+Y sin ningun problema ya podremos empezar a utilizar sentencias SQL, entramos en modo DIOS++...
+hacemos la siguiente consulta:
+
+SHOW DATABASES;
+
+Podremos observar todas las bases de datos que se encuentran alojadas por defecto al momento de instalar
+MariaDB. Nos concentraremos en mysql. Realizamos la siguiente consulta.
+
+USE mysql;
+
+Nota importantisima: NO OLVIDES EL ;             -----!!!asDSA#!"#"!
+
+asi pues ya tenemos acceso a las configuraciones de nuestra base de datos MariaDB. Realizamos la siguiente
+consulta:
+
+SHOW FULL TABLES;
+
+Obviamente el sistema nos respondera con todas las tablas y entre esas si observamos hasta el final del listado
+encontraremos la que dice: user , nuevamente vamos a concentrarnos en esta tabla. Realizmos la siguiente consulta
+
+SELECT user, host, plugin;
+
+Y justamente como puedes observar, esto nos traera a pantalla estas tres columnas que se encuentran dentro de la
+tabla user. Asi pues, segun el usuario que estemos manipulando ya sea root o el que hayamos creado.
+
+Realizamos la siguiente actualizacion en la tabla:
+
+UPDATE user SET plugin ='mysql_native_password' WHERE User='root' (Recuerda que este es el usuario por defecto);
+
+Y como hemos hecho una modificacion directamente sobre los usuarios de la base de datos MariaDB esto significa que 
+debemosguardar todos los cambios a los usuarios manipulados en la sesion que nos encontramos.
+Por tanto nuestro querido:
+
+FLUSH PRIVILEGES;
+
+Y listo amigos, ya podemos instalar nuestro hermoso MySQLWorkbench
+
+https://platzi.com/tutoriales/1566-bd/8226-como-instalar-mysql-y-workbench-en-ubuntu-sin-morir-en-el-intento/
+
+
+
